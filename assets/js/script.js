@@ -55,8 +55,6 @@ const cityForcastPopulate = (data) => {
     // variables of time
     let forcastDate = moment();
 
-    console.log(data);
-
     for (let i = 1; i < 6; ++i) {
         forcastDate = forcastDate.add( 1, 'days');        
         let forcastTemp = fConversion(data.daily[i].temp.day);
