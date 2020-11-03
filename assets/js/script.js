@@ -36,7 +36,7 @@ const createForcastCards = (temp, humidity, date, icon) => {
     forcastCard.appendChild(forcastCardHeader);
     // create and apppend card icon
     let forcastCardIcon = document.createElement("img");
-    forcastCardIcon.setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`);
+    forcastCardIcon.setAttribute("src", `https://openweathermap.org/img/wn/${icon}@2x.png`);
     forcastCard.appendChild(forcastCardIcon);
     // create and append card temp
     let forcastCardTemp = document.createElement("p");
@@ -85,7 +85,7 @@ const cityWeatherPopulate = (data, cityName) => {
     let windSpan = document.querySelector("#windSpeed");
     let uviSpan = document.querySelector("#uvIndex");
     let cityWeatherIconImg = document.querySelector("#currentWeatherIcon");
-    cityWeatherIconImg.setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`);
+    cityWeatherIconImg.setAttribute("src", `https://openweathermap.org/img/wn/${icon}@2x.png`);
 
     // place values in DOM/HTML
     citySpan.textContent = cityName;
