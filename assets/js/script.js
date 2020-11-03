@@ -1,6 +1,8 @@
 let searchFormEl = document.querySelector("#searchForm");
 let uvCheckEl = document.querySelector("#uvCheck");
 let forcastCardsEl = document.querySelector("#forcastCards");
+let savedCitiesEl = document.querySelector("#savedSearches");
+let cityStoredData = [];
 
 const fConversion = (K) => {
     // converts Kelvin to Fahrenheit and rounds to one decimal place
@@ -18,10 +20,6 @@ const uviCheck = (uvi) => {
         uvCheckEl.classList = '';
         uvCheckEl.classList = 'bg-warning rounded-lg p-1';
     }
-    if (uvi > 5) {
-        uvCheckEl.classList = '';
-        uvCheckEl.classList = 'bg-warning rounded-lg p-1';
-    }
     if (uvi > 7) {
         uvCheckEl.classList = '';
         uvCheckEl.classList = 'btn-danger rounded-lg p-1';
@@ -31,7 +29,7 @@ const uviCheck = (uvi) => {
 const createForcastCards = (temp, humidity, date, icon) => {
     // create card
     let forcastCard = document.createElement("div");
-    forcastCard.classList = 'card p-3 bg-primary';
+    forcastCard.classList = 'card p-2 bg-primary';
     // create and append card header
     let forcastCardHeader = document.createElement("h6");
     forcastCardHeader.textContent = date.format("MM/DD/YYYY");
@@ -128,6 +126,9 @@ const cityLatLonFetch = (city) => {
                     let cityLat = response.coord.lat;
                     let cityLon = response.coord.lon;
                     let cityName = response.name;
+                    // save city
+                    saveCity(cityInput);
+                    // pull all weather in one call
                     cityOneCallFetch(cityLat, cityLon, cityName);
                 });
             } else {
@@ -135,27 +136,70 @@ const cityLatLonFetch = (city) => {
             }
         })
 }
+const createCityButton = (city) => {
+    let savedCityEl = document.createElement("button");
+    savedCityEl.classList = "card p-2";
+    savedCityEl.setAttribute("value", city)
+    savedCityEl.textContent = city;
+    savedCitiesEl.appendChild(savedCityEl);
+}
+
+const saveCity = (city) => {
+    createCityButton(city);
+    // create object of city to push to to savedCitiesData
+    if (!cityStoredData) {
+        cityStoredData = [{city}];
+    } else {
+        cityStoredData.push({city});
+    }
+    localStorage.setItem("cities", JSON.stringify(cityStoredData));
+}
 
 const collectUserCity = (event) => {
     // prevents page from reloading
     event.preventDefault();
-
     // check if user left text input black
     if (!event.target[0].value) {
         alert("Input a city into the field!");
         return;
     };
-
     // grab user input's value
     let cityInputEl = document.querySelector("#citySearch");
     let cityInput = cityInputEl.value
     // wipe text field after obtaining value
     cityInputEl.value = '';
-
     // send city into api fetch function
     cityLatLonFetch(cityInput);
     // cityWeatherForcast(cityInput);
 }
 
+const populateFromButtons = (event) => {
+    // prevent page from reloading
+    event.preventDefault();
+    // validate a value
+    if(!event.target.value) {
+        return;
+    } else {
+        cityLatLonFetch(event.target.value);
+    }    
+}
+
+const loadData = () => {
+    // pull data from storage
+    cityStoredData = JSON.parse(localStorage.getItem("cities"));
+    // validate the data from localStorage
+    if (!cityStoredData) {
+        return;
+    } else {
+        for (let i = 0; i < cityStoredData.length; ++i) {
+            createCityButton(cityStoredData[i].city)
+        }
+    }
+}
+
+// load any data
+loadData();
 // listens for user to submit data
 searchFormEl.addEventListener("submit", collectUserCity);
+// listens for clicking on a saved area
+savedCitiesEl.addEventListener("click", populateFromButtons);
