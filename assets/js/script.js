@@ -1,6 +1,6 @@
 let searchFormEl = document.querySelector("#searchForm");
 let uvCheckEl = document.querySelector("#uvCheck");
-let currentDate = moment();
+let forcastCardsEl = document.querySelector("#forcastCards");
 
 const fConversion = (K) => {
     // converts Kelvin to Fahrenheit and rounds to one decimal place
@@ -28,9 +28,50 @@ const uviCheck = (uvi) => {
     }
 }
 
-const cityWeatherPopulate = (data, cityName) => {
+const createForcastCards = (temp, humidity, date, icon) => {
+    // create card
+    let forcastCard = document.createElement("div");
+    forcastCard.classList = 'card p-3 bg-primary';
+    // create and append card header
+    let forcastCardHeader = document.createElement("h6");
+    forcastCardHeader.textContent = date.format("MM/DD/YYYY");
+    forcastCard.appendChild(forcastCardHeader);
+    // create and apppend card icon
+    let forcastCardIcon = document.createElement("img");
+    forcastCardIcon.setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`);
+    forcastCard.appendChild(forcastCardIcon);
+    // create and append card temp
+    let forcastCardTemp = document.createElement("p");
+    forcastCardTemp.textContent = `Temp: ${temp} °F`;
+    forcastCard.appendChild(forcastCardTemp);
+    // create and append card humidity
+    let forcastCardHumidity = document.createElement("p");
+    forcastCardHumidity.textContent = `Humid: ${humidity} %`;
+    forcastCard.appendChild(forcastCardHumidity);
+    forcastCardsEl.appendChild(forcastCard);
+}
+
+const cityForcastPopulate = (data) => {
+    // empty card container
+    forcastCardsEl.textContent = '';
+    // variables of time
+    let forcastDate = moment();
 
     console.log(data);
+
+    for (let i = 1; i < 6; ++i) {
+        forcastDate = forcastDate.add( 1, 'days');        
+        let forcastTemp = fConversion(data.daily[i].temp.day);
+        let forcastHumidity = data.daily[i].humidity;
+        let forcastIcon = data.daily[i].weather[0].icon;
+
+        console.log(forcastIcon);
+
+        createForcastCards(forcastTemp, forcastHumidity, forcastDate, forcastIcon);
+    }
+}
+
+const cityWeatherPopulate = (data, cityName) => {
     // Variables we need from fetch
     let tempK = data.current.temp; 
     let tempF = fConversion(tempK)
@@ -38,8 +79,7 @@ const cityWeatherPopulate = (data, cityName) => {
     let wind = data.current.wind_speed;
     let uvIndex = data.current.uvi;
     let icon = data.current.weather[0].icon;
-
-    console.log(icon);
+    let currentDate = moment();
     
     // Variables from the DOM
     let citySpan = document.querySelector("#city");
@@ -51,11 +91,9 @@ const cityWeatherPopulate = (data, cityName) => {
     let cityWeatherIconImg = document.querySelector("#currentWeatherIcon");
     cityWeatherIconImg.setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`);
 
-    console.log(cityWeatherIconImg);
-
     // place values in DOM/HTML
     citySpan.textContent = cityName;
-    dateSpan.textContent = currentDate.format(" (MM/DD/YY) ");
+    dateSpan.textContent = currentDate.format(" (MM/DD/YYYY) ");
     tempSpan.textContent = tempF;
     humiditySpan.textContent = humidity;
     windSpan.textContent = wind;
@@ -65,7 +103,6 @@ const cityWeatherPopulate = (data, cityName) => {
 }
 
 const cityOneCallFetch = (cityLat, cityLon, cityName) => {
-
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=minutely,hourly,alerts&appid=43457cfab621bccace2506c23d4ef384`
     
     // Open Weather Fetching
@@ -79,6 +116,7 @@ const cityOneCallFetch = (cityLat, cityLon, cityName) => {
         })
         .then(function(response) {
             cityWeatherPopulate(response, cityName);
+            cityForcastPopulate(response);
         })
 }
 
