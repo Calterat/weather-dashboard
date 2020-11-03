@@ -126,8 +126,6 @@ const cityLatLonFetch = (city) => {
                     let cityLat = response.coord.lat;
                     let cityLon = response.coord.lon;
                     let cityName = response.name;
-                    // save city
-                    saveCity(cityInput);
                     // pull all weather in one call
                     cityOneCallFetch(cityLat, cityLon, cityName);
                 });
@@ -166,6 +164,8 @@ const collectUserCity = (event) => {
     // grab user input's value
     let cityInputEl = document.querySelector("#citySearch");
     let cityInput = cityInputEl.value
+    // save city
+    saveCity(cityInput);
     // wipe text field after obtaining value
     cityInputEl.value = '';
     // send city into api fetch function
