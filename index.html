@@ -6,6 +6,7 @@
     <title>Document</title>
     <link href="./assets/css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://pagecdn.io/lib/weather-icons/2.0.10/css/weather-icons.min.css" rel="stylesheet" crossorigin="anonymous"  >
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark justify-content-center text-white font-weight-bold">Weather Dashboard</nav>
@@ -27,16 +28,17 @@
             </div>
             <div class="col-12 col-lg-9" id="searchContent">
                 <div class="row card m-2 mt-3 p-3" id="locationToday">
-                    <h2 class="mb-4">City<span id="cityDate"></span> <span id="date"></span> <span id="currentWeathericon"></span></h2>
+                    <h2 class=''><span id="city"></span> <span id="date"></span> <img id="currentWeatherIcon" /></h2>
                     <p>Temperature: <span id="temp"></span> &#176;F</p>
                     <p>Humidity: <span id="humidity"></span>%</p>
                     <p>Wind Speed: <span id="windSpeed"></span> MPH</p>
-                    <p>UV Index: <span id="uvIndex"></span></p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab perspiciatis vero necessitatibus? Explicabo facilis, illum aperiam quibusdam, veritatis rerum magni distinctio veniam dicta quas omnis possimus quos tempore quod sed.</div>
+                    <p>UV Index: <span id="uvCheck"><span id="uvIndex"></span></span></p>
+                </div>
                 <div class="row m-2 pt-2" id="locationForcast">
                     <h2>5-Day Forcast:</h2>
                     <div class="d-flex justify-space-between" id="inlineForcastCards"></div>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit ipsa delectus quo molestiae autem nulla, temporibus minus odio dolorum id ut dolor libero laboriosam nemo obcaecati eaque in adipisci maiores.</div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit ipsa delectus quo molestiae autem nulla, temporibus minus odio dolorum id ut dolor libero laboriosam nemo obcaecati eaque in adipisci maiores.
+                </div>
             </div>
         </div>
     </div>
