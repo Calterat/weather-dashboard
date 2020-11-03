@@ -1,4 +1,5 @@
 let searchFormEl = document.querySelector("#searchForm");
+let currentDate = moment();
 
 const cityWeatherPopulate = (data) => {
     console.log(data);
