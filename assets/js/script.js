@@ -64,9 +64,7 @@ const cityForcastPopulate = (data) => {
         let forcastTemp = fConversion(data.daily[i].temp.day);
         let forcastHumidity = data.daily[i].humidity;
         let forcastIcon = data.daily[i].weather[0].icon;
-
-        console.log(forcastIcon);
-
+        // loop through each additional day and create a weather card
         createForcastCards(forcastTemp, forcastHumidity, forcastDate, forcastIcon);
     }
 }
