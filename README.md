@@ -5,10 +5,10 @@
     <img src="./assets/images/julian-img.jpeg" alt="Logo" width="80" height="100">
   </a>
 
-  <h1 align="center">My Work Day Scheduler</h1>
+  <h1 align="center">My Weather App Dashboard</h1>
 
   <p align="center">
-    Julian Gillis' Work Day Schedule
+    Julian Gillis' Weather Application
     <br />
     <a href="https://github.com/Calterat/weather-dashboard"><strong>Explore the docs »</strong></a>
     <br />
