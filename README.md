@@ -10,10 +10,10 @@
   <p align="center">
     Julian Gillis' Work Day Schedule
     <br />
-    <a href="https://github.com/Calterat/work-day-scheduler"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Calterat/weather-dashboard"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://calterat.github.io/work-day-scheduler">View Demo</a>
+    <a href="https://calterat.github.io/weather-dashboard/">View Demo</a>
   </p>
 </p>
 <br/>
@@ -38,9 +38,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![](./assets/images/work-day-scheduler-screenshot.png)
+![](./assets/images/weather-dashboard-screenshot.png)
 
-Here's a quick screenshot of the word day scheduler page.
+Here's a quick screenshot of the weather dashboard page.
 
 Under the hood of this webpage is my JavaScript code using Third-Party APIs like jQuery and Moment.js. This displays some of my abilities with JavaScript. You may enter your tasks at anytime slot, but don't forget to save! The save button just to the right of each task field will save only that task, so if you change another field without saving, don't expect another tasks save button to save those other tasks. The data persists in your localStorage, so if you leave and come back it will still be there.
 
@@ -55,6 +55,7 @@ These are the learned tools in JavaSCript that I used to accomplish the this pro
  - functions
  - The DOM and other Web APIs
  - Third-Party APIs like jQeary and Moment.js
+ - Server-side APIs
 
 
 
@@ -71,6 +72,7 @@ These are the learned tools in JavaSCript that I used to accomplish the this pro
 * [Google Fonts]()
 * [VSCODE]()
 * [GIT]()
+* [AJAX]()
 
 
 
@@ -92,7 +94,7 @@ These are the tools you'll need if locally editing the source code.
 
 1. Clone the repo (type in Bash or Terminal)
 ```
-git clone git@github.com:Calterat/work-day-scheduler.git
+git clone git@github.com:Calterat/weather-dashboard.git
 ```
 
 
@@ -100,7 +102,7 @@ git clone git@github.com:Calterat/work-day-scheduler.git
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-[My Portfolio](https://calterat.github.io/work-day-scheduler)
+[My Portfolio](https://calterat.github.io/weather-dashboard/)
 
 Please press the 'Generate Button' and use it to produce a random password using the character types you selected.
 
@@ -109,7 +111,7 @@ Please press the 'Generate Button' and use it to produce a random password using
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/Calterat/work-day-scheduler/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/Calterat/weather-dashboard/issues) for a list of proposed features (and known issues).
 
 
 
@@ -138,13 +140,13 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Julian Gillis -  Calterat@gmail.com
 
-Project Link: [https://github.com/Calterat/work-day-scheduler](https://github.com/Calterat/work-day-scheduler)
+Project Link: [https://github.com/Calterat/weather-dashboard](https://github.com/Calterat/weather-dashboard)
 
 
 <!-- Additional Notes -->
 ## Additional Notes
 
-Thank you for taking the time to check out and use my random password generator!
+Thank you for taking the time to check out my weather app!
 
 
 <!-- ACKNOWLEDGEMENTS -->
@@ -153,8 +155,6 @@ Thank you for taking the time to check out and use my random password generator!
 * [All instructors who helped with my teachings]()
 * [Othneil Drew](#https://github.com/othneildrew)
     * How to - README.md templates
-* [coding-boot-camp](#https://github.com/coding-boot-camp)
-    * Initial HTML, CSS, and JavaScript Code
 
 
 
@@ -163,12 +163,12 @@ Thank you for taking the time to check out and use my random password generator!
 <!-- MARKDOWN LINKS & IMAGES -->
 <!--
 
-[GitHub Repository]: https://github.com/Calterat/work-day-scheduler
-[Password Generator URL]: https://calterat.github.io/work-day-scheduler
-[issues-url]: https://github.com/Calterat/work-day-scheduler/issues
-[license-url]: https://github.com/Calterat/work-day-scheduler/blob/master/LICENSE.txt
+[GitHub Repository]: https://github.com/Calterat/weather-dashboard
+[Password Generator URL]: https://calterat.github.io/weather-dashboard/
+[issues-url]: https://github.com/Calterat/weather-dashboard/issues
+[license-url]: https://github.com/Calterat/weather-dashboard/blob/master/LICENSE.txt
 [linkedin-url]: https://www.linkedin.com/in/julian-gillis-5ba18b20/
 ![personal-image](./assets/images/julian-img.jpeg)
-![product-screenshot](.assets/images/work-day-scheduler-screenshot.png)
+![product-screenshot](.assets/images/weather-dashboard-screenshot.png)
 
 -->

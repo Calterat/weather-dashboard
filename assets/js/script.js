@@ -173,7 +173,7 @@ const collectUserCity = (event) => {
     // send city into api fetch function
     cityLatLonFetch(cityInput);
     // save city
-    setTimeout(saveCity(cityInput),5000);
+    saveCity(cityInput);
 }
 
 const populateFromButtons = (event) => {
