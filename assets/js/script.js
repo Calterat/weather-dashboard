@@ -55,11 +55,6 @@ const cityForcastPopulate = (data) => {
     forcastCardsEl.textContent = '';
     // variables of time
     let forcastDate = moment();
-<<<<<<< HEAD
-
-=======
-    // loop that creates forcast cards
->>>>>>> develop
     for (let i = 1; i < 6; ++i) {
         forcastDate = forcastDate.add( 1, 'days');        
         let forcastTemp = fConversion(data.daily[i].temp.day);
