@@ -3,6 +3,7 @@ let uvCheckEl = document.querySelector("#uvCheck");
 let forcastCardsEl = document.querySelector("#forcastCards");
 let savedCitiesEl = document.querySelector("#savedSearches");
 let cityStoredData = [];
+let apiError = false;
 
 const fConversion = (K) => {
     // converts Kelvin to Fahrenheit and rounds to one decimal place
@@ -54,7 +55,11 @@ const cityForcastPopulate = (data) => {
     forcastCardsEl.textContent = '';
     // variables of time
     let forcastDate = moment();
+<<<<<<< HEAD
 
+=======
+    // loop that creates forcast cards
+>>>>>>> develop
     for (let i = 1; i < 6; ++i) {
         forcastDate = forcastDate.add( 1, 'days');        
         let forcastTemp = fConversion(data.daily[i].temp.day);
@@ -92,7 +97,7 @@ const cityWeatherPopulate = (data, cityName) => {
     humiditySpan.textContent = humidity;
     windSpan.textContent = wind;
     uviSpan.textContent = uvIndex;
-
+    // check for intensity of UV Index
     uviCheck(uvIndex);
 }
 
@@ -128,10 +133,11 @@ const cityLatLonFetch = (city) => {
                     cityOneCallFetch(cityLat, cityLon, cityName);
                 });
             } else {
-                alert(`Error: ${response.statusText}`);
+                alert(`Error: ${response.statusText}`);        
             }
         })
 }
+
 const createCityButton = (city) => {
     let savedCityEl = document.createElement("button");
     savedCityEl.classList = "card p-2";
@@ -141,7 +147,7 @@ const createCityButton = (city) => {
 }
 
 const saveCity = (city) => {
-    if (!document.querySelector(`button[value=${city}`)) {
+    if (!document.querySelector(`button[value=${city}`)  && !apiError) {
         // create object of city to push to to savedCitiesData
         if (!cityStoredData) {
             cityStoredData = [{city}];
@@ -166,13 +172,12 @@ const collectUserCity = (event) => {
     // grab user input's value
     let cityInputEl = document.querySelector("#citySearch");
     let cityInput = cityInputEl.value
-    // save city
-    saveCity(cityInput);
     // wipe text field after obtaining value
     cityInputEl.value = '';
     // send city into api fetch function
     cityLatLonFetch(cityInput);
-    // cityWeatherForcast(cityInput);
+    // save city
+    saveCity(cityInput);
 }
 
 const populateFromButtons = (event) => {
