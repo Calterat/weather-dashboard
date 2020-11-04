@@ -93,7 +93,7 @@ const cityWeatherPopulate = (data, cityName) => {
     humiditySpan.textContent = humidity;
     windSpan.textContent = wind;
     uviSpan.textContent = uvIndex;
-
+    // check for intensity of UV Index
     uviCheck(uvIndex);
 }
 
@@ -133,6 +133,7 @@ const cityLatLonFetch = (city) => {
             }
         })
 }
+
 const createCityButton = (city) => {
     let savedCityEl = document.createElement("button");
     savedCityEl.classList = "card p-2";
