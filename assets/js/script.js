@@ -126,6 +126,8 @@ const cityLatLonFetch = (city) => {
                     let cityName = response.name;
                     // pull all weather in one call
                     cityOneCallFetch(cityLat, cityLon, cityName);
+                    // save city
+                    saveCity(cityName);
                 });
             } else {
                 alert(`Error: ${response.statusText}`);        
@@ -171,8 +173,6 @@ const collectUserCity = (event) => {
     cityInputEl.value = '';
     // send city into api fetch function
     cityLatLonFetch(cityInput);
-    // save city
-    saveCity(cityInput);
 }
 
 const populateFromButtons = (event) => {
