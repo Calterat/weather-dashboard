@@ -143,14 +143,18 @@ const createCityButton = (city) => {
 }
 
 const saveCity = (city) => {
-    createCityButton(city);
-    // create object of city to push to to savedCitiesData
-    if (!cityStoredData) {
-        cityStoredData = [{city}];
+    if (!document.querySelector(`button[value=${city}`)) {
+        // create object of city to push to to savedCitiesData
+        if (!cityStoredData) {
+            cityStoredData = [{city}];
+        } else {
+            cityStoredData.push({city});
+        }
+        localStorage.setItem("cities", JSON.stringify(cityStoredData));
+        createCityButton(city);
     } else {
-        cityStoredData.push({city});
+        return;
     }
-    localStorage.setItem("cities", JSON.stringify(cityStoredData));
 }
 
 const collectUserCity = (event) => {
