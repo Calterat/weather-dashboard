@@ -3,7 +3,6 @@ let uvCheckEl = document.querySelector("#uvCheck");
 let forcastCardsEl = document.querySelector("#forcastCards");
 let savedCitiesEl = document.querySelector("#savedSearches");
 let cityStoredData = [];
-let apiError = false;
 
 const fConversion = (K) => {
     // converts Kelvin to Fahrenheit and rounds to one decimal place
@@ -144,7 +143,7 @@ const createCityButton = (city) => {
 }
 
 const saveCity = (city) => {
-    if (!document.querySelector(`button[value=${city}`)  && !apiError) {
+    if (!document.querySelector(`button[value=${city}`)) {
         // create object of city to push to to savedCitiesData
         if (!cityStoredData) {
             cityStoredData = [{city}];
