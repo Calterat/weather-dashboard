@@ -54,7 +54,7 @@ These are the learned tools in JavaSCript that I used to accomplish the this pro
  - if/else conditional statements
  - functions
  - The DOM and other Web APIs
- - Third-Party APIs like jQeary and Moment.js
+ - Third-Party APIs like and Moment.js
  - Server-side APIs
 
 
