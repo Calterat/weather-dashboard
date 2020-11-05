@@ -29,7 +29,7 @@ const uviCheck = (uvi) => {
 const createForcastCards = (temp, humidity, date, icon) => {
     // create card
     let forcastCard = document.createElement("div");
-    forcastCard.classList = 'card p-2 bg-primary';
+    forcastCard.classList = 'card p-2 bg-primary text-center';
     // create and append card header
     let forcastCardHeader = document.createElement("h6");
     forcastCardHeader.textContent = date.format("MM/DD/YYYY");
@@ -37,6 +37,7 @@ const createForcastCards = (temp, humidity, date, icon) => {
     // create and apppend card icon
     let forcastCardIcon = document.createElement("img");
     forcastCardIcon.setAttribute("src", `https://openweathermap.org/img/wn/${icon}@2x.png`);
+    forcastCardIcon.setAttribute("style", "max-width: 100px; min-width: 100px; display: block; margin: 0 auto;")
     forcastCard.appendChild(forcastCardIcon);
     // create and append card temp
     let forcastCardTemp = document.createElement("p");
