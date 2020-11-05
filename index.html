@@ -12,7 +12,7 @@
     <nav class="navbar navbar-dark bg-dark justify-content-center text-white font-weight-bold"><h1>Weather Dashboard</h1></nav>
     <div class="container">
         <div class="row" id="actualContent">
-            <div class="col -12 col-lg-3 bg-light p-2" id="searchForm">
+            <div class="col-12 col-lg-3 bg-light p-2" id="searchForm">
                 <h5>Search for a City:</h5>
                 <form class="d-flex" id="searchForm">
                     <input type="text" name="citySearch" id="citySearch"/>
@@ -23,7 +23,7 @@
                         </svg>
                     </button>
                 </form>
-                <div class="container p-0 mt-2" id="savedSearches"></div>
+                <div class="container p-0 mt-2" id="savedSearches"><p style="font-size: x-small;">For a more precise search result use "city name (or Zip code), country". Ex. - London, GB or 37211, US.</p></div>
             </div>
             <div class="col-12 col-lg-9" id="searchContent">
                 <div class="row card m-2 mt-3 p-3" id="locationToday">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="row m-1" id="locationForcast">
                     <h2 class="col-12">5-Day Forcast:</h2>
-                    <div class="col-12 d-flex justify-content-around" id="forcastCards">
+                    <div class="col-12 d-flex flex-column flex-sm-row justify-content-around" id="forcastCards">
                     </div>
                 </div>
             </div>
