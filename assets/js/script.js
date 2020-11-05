@@ -37,7 +37,7 @@ const createForcastCards = (temp, humidity, date, icon) => {
     // create and apppend card icon
     let forcastCardIcon = document.createElement("img");
     forcastCardIcon.setAttribute("src", `https://openweathermap.org/img/wn/${icon}@2x.png`);
-    forcastCardIcon.setAttribute("style", "max-width: 100px; min-width: 100px; display: block; margin: 0 auto;")
+    forcastCardIcon.setAttribute("style", "width: 50px; display: block; margin: 0 auto;")
     forcastCard.appendChild(forcastCardIcon);
     // create and append card temp
     let forcastCardTemp = document.createElement("p");
