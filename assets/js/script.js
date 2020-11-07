@@ -3,7 +3,6 @@ let uvCheckEl = document.querySelector("#uvCheck");
 let forcastCardsEl = document.querySelector("#forcastCards");
 let savedCitiesEl = document.querySelector("#savedSearches");
 let cityStoredData = [];
-let apiError = false;
 
 const fConversion = (K) => {
     // converts Kelvin to Fahrenheit and rounds to one decimal place
@@ -30,7 +29,7 @@ const uviCheck = (uvi) => {
 const createForcastCards = (temp, humidity, date, icon) => {
     // create card
     let forcastCard = document.createElement("div");
-    forcastCard.classList = 'card p-2 bg-primary';
+    forcastCard.classList = 'card p-2 bg-primary text-center';
     // create and append card header
     let forcastCardHeader = document.createElement("h6");
     forcastCardHeader.textContent = date.format("MM/DD/YYYY");
@@ -56,7 +55,6 @@ const cityForcastPopulate = (data) => {
     forcastCardsEl.textContent = '';
     // variables of time
     let forcastDate = moment();
-    // loop that creates forcast cards
     for (let i = 1; i < 6; ++i) {
         forcastDate = forcastDate.add( 1, 'days');        
         let forcastTemp = fConversion(data.daily[i].temp.day);
@@ -88,7 +86,7 @@ const cityWeatherPopulate = (data, cityName) => {
     windDirectionSpan.classList = `wi wi-wind towards-${windDeg}-deg`;
     let uviSpan = document.querySelector("#uvIndex");
     let cityWeatherIconImg = document.querySelector("#currentWeatherIcon");
-    cityWeatherIconImg.setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`);
+    cityWeatherIconImg.setAttribute("src", `https://openweathermap.org/img/wn/${icon}@2x.png`);
 
     // place values in DOM/HTML
     citySpan.textContent = cityName;
@@ -131,6 +129,8 @@ const cityLatLonFetch = (city) => {
                     let cityName = response.name;
                     // pull all weather in one call
                     cityOneCallFetch(cityLat, cityLon, cityName);
+                    // save city
+                    saveCity(cityName);
                 });
             } else {
                 alert(`Error: ${response.statusText}`);        
@@ -147,7 +147,7 @@ const createCityButton = (city) => {
 }
 
 const saveCity = (city) => {
-    if (!document.querySelector(`button[value=${city}`)  && !apiError) {
+    if (!document.querySelector(`button[value=${city}`)) {
         // create object of city to push to to savedCitiesData
         if (!cityStoredData) {
             cityStoredData = [{city}];
@@ -176,8 +176,6 @@ const collectUserCity = (event) => {
     cityInputEl.value = '';
     // send city into api fetch function
     cityLatLonFetch(cityInput);
-    // save city
-    saveCity(cityInput);
 }
 
 const populateFromButtons = (event) => {

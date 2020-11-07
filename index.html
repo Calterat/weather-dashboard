@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css" integrity="sha512-Ydyj0LLrJGMf7yUSU+QxZE4Pu/jVIutpdTOAozUrzZMslo+vLMX64rghLxEs+AKpN+GmnVNgXoeLlMwSqtyjPw==" crossorigin="anonymous" />
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark justify-content-center text-white font-weight-bold">Weather Dashboard</nav>
+    <nav class="navbar navbar-dark bg-dark justify-content-center text-white font-weight-bold"><h1>Weather Dashboard</h1></nav>
     <div class="container">
         <div class="row" id="actualContent">
-            <div class="col -12 col-lg-3 bg-light p-2" id="searchForm">
+            <div class="col-12 col-lg-3 bg-light p-2 text-center text-md-left" id="searchForm">
                 <h5>Search for a City:</h5>
-                <form class="d-flex" id="searchForm">
+                <form class="d-flex justify-content-center justify-content-md-start" id="searchForm">
                     <input type="text" name="citySearch" id="citySearch"/>
                     <button type="submit" class="btn btn-primary">
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@
                         </svg>
                     </button>
                 </form>
-                <div class="container p-0 mt-2" id="savedSearches"></div>
+                <div class="container p-0 mt-2 d-flex flex-column align-items-center align-items-md-start" id="savedSearches"><p style="font-size: x-small;">For a more precise search result use "city name (or Zip code), country". Ex. - London, GB or 37211, US.</p></div>
             </div>
             <div class="col-12 col-lg-9" id="searchContent">
                 <div class="row card m-2 mt-3 p-3" id="locationToday">
@@ -35,8 +35,7 @@
                 </div>
                 <div class="row m-1" id="locationForcast">
                     <h2 class="col-12">5-Day Forcast:</h2>
-                    <div class="col-12 d-flex flex-column flex-md-row justify-content-around" id="forcastCards">
-                    </div>
+                    <div class="col-12 d-flex flex-column flex-sm-row justify-content-around" id="forcastCards"></div>
                 </div>
             </div>
         </div>

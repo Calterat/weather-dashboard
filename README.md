@@ -5,10 +5,10 @@
     <img src="./assets/images/julian-img.jpeg" alt="Logo" width="80" height="100">
   </a>
 
-  <h1 align="center">My Work Day Scheduler</h1>
+  <h1 align="center">My Weather App Dashboard</h1>
 
   <p align="center">
-    Julian Gillis' Work Day Schedule
+    Julian Gillis' Weather Application
     <br />
     <a href="https://github.com/Calterat/weather-dashboard"><strong>Explore the docs »</strong></a>
     <br />
@@ -42,9 +42,9 @@
 
 Here's a quick screenshot of the weather dashboard page.
 
-Under the hood of this webpage is my JavaScript code using Third-Party APIs like jQuery and Moment.js. This displays some of my abilities with JavaScript. You may enter your tasks at anytime slot, but don't forget to save! The save button just to the right of each task field will save only that task, so if you change another field without saving, don't expect another tasks save button to save those other tasks. The data persists in your localStorage, so if you leave and come back it will still be there.
+Under the hood of this webpage is my JavaScript code using Third-Party APIs like Moment.js and server side APIs like OpenWeather. This displays some of my abilities with JavaScript and AJAX. You may enter a city or zip code to pull the weather. Also displayed is the 5 day forcast of the city/zip. The searches are saved as a button on the left menu that you may revisit again, and this data is persistant.
 
-This was a challenge as the third-party apps were new concepts, and the CSS was provided. Sometimes going through the existing code to figure out how you are suppose to use existing declarations is tough. I suppose I now understand the limitations of libraries and frameworks because you think about how you can shape your program according to what is provided rather than working from the ground up (which could take way too long depending on the size of the program) Challanges I faced on this project was the use of Java to dynamically create the HTML for display, how to assign saved tasks to localStorage, and how to retrieve them.
+This was a challenge as the third-party APIs and server-side APIs were new concepts, and bootstrap was put to the test. I suppose I now understand the limitations of libraries and frameworks because you think about how you can shape your program according to what is provided rather than working from the ground up (which could take way too long depending on the size of the program) Challanges I faced on this project was the use of Java to dynamically create the HTML for display, how to assign saved tasks to localStorage, and how to retrieve them.
 
 These are the learned tools in JavaSCript that I used to accomplish the this project:
  - Variables
@@ -54,7 +54,7 @@ These are the learned tools in JavaSCript that I used to accomplish the this pro
  - if/else conditional statements
  - functions
  - The DOM and other Web APIs
- - Third-Party APIs like jQeary and Moment.js
+ - Third-Party APIs like and Moment.js
  - Server-side APIs
 
 
@@ -65,11 +65,9 @@ These are the learned tools in JavaSCript that I used to accomplish the this pro
 * [HTML]()
 * [CSS]()
 * [JavaScript]()
-* [jQuery]()
 * [Bootstrap]()
-* [FontAwesome]()
+* [OpenWeather API]()
 * [Moment.js]()
-* [Google Fonts]()
 * [VSCODE]()
 * [GIT]()
 * [AJAX]()
