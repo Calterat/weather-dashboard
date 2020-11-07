@@ -101,7 +101,6 @@ const cityWeatherPopulate = (data, cityName) => {
 
 const cityOneCallFetch = (cityLat, cityLon, cityName) => {
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=minutely,hourly,alerts&appid=43457cfab621bccace2506c23d4ef384`
-    
     // Open Weather Fetching
     fetch(apiUrl)
         .then(function(response) {
@@ -118,6 +117,7 @@ const cityOneCallFetch = (cityLat, cityLon, cityName) => {
 }
 
 const cityLatLonFetch = (city) => {
+    city = city.replace("-", " ");
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?APPID=43457cfab621bccace2506c23d4ef384&q=${city}`
     // fetch lat and lon of city from standard call
     fetch(apiUrl)
@@ -138,16 +138,17 @@ const cityLatLonFetch = (city) => {
         })
 }
 
-const createCityButton = (city) => {
+const createCityButton = (city, cityNoSpace) => {
     let savedCityEl = document.createElement("button");
     savedCityEl.classList = "card p-2";
-    savedCityEl.setAttribute("value", city)
+    savedCityEl.setAttribute("value", cityNoSpace);
     savedCityEl.textContent = city;
     savedCitiesEl.appendChild(savedCityEl);
 }
 
 const saveCity = (city) => {
-    if (!document.querySelector(`button[value=${city}`)) {
+    cityNoSpace = city.replace(" ", "-");
+    if (!document.querySelector(`button[value=${cityNoSpace}`)) {
         // create object of city to push to to savedCitiesData
         if (!cityStoredData) {
             cityStoredData = [{city}];
@@ -155,7 +156,7 @@ const saveCity = (city) => {
             cityStoredData.push({city});
         }
         localStorage.setItem("cities", JSON.stringify(cityStoredData));
-        createCityButton(city);
+        createCityButton(city, cityNoSpace);
     } else {
         return;
     }
@@ -197,7 +198,8 @@ const loadData = () => {
         return;
     } else {
         for (let i = 0; i < cityStoredData.length; ++i) {
-            createCityButton(cityStoredData[i].city)
+            cityNoSpace = cityStoredData[i].city.replace(" ", "-");
+            createCityButton(cityStoredData[i].city, cityNoSpace);
         }
     }
 }
