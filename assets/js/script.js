@@ -36,8 +36,8 @@ const createForcastCards = (temp, humidity, date, icon) => {
     forcastCard.appendChild(forcastCardHeader);
     // create and apppend card icon
     let forcastCardIcon = document.createElement("img");
-    forcastCardIcon.setAttribute("src", `https://openweathermap.org/img/wn/${icon}@2x.png`);
-    forcastCardIcon.setAttribute("style", "width: 50px; display: block; margin: 0 auto;")
+    forcastCardIcon.setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`);
+    forcastCardIcon.setAttribute("style", "width: 75px;");
     forcastCard.appendChild(forcastCardIcon);
     // create and append card temp
     let forcastCardTemp = document.createElement("p");
@@ -72,6 +72,7 @@ const cityWeatherPopulate = (data, cityName) => {
     let humidity = data.current.humidity;
     let wind = data.current.wind_speed;
     let uvIndex = data.current.uvi;
+    let windDeg = data.current.wind_deg;
     let icon = data.current.weather[0].icon;
     let currentDate = moment();
     
@@ -81,6 +82,8 @@ const cityWeatherPopulate = (data, cityName) => {
     let tempSpan = document.querySelector("#temp");
     let humiditySpan = document.querySelector("#humidity");
     let windSpan = document.querySelector("#windSpeed");
+    let windDirectionSpan = document.querySelector("#windDirection");
+    windDirectionSpan.classList = `wi wi-wind towards-${windDeg}-deg`;
     let uviSpan = document.querySelector("#uvIndex");
     let cityWeatherIconImg = document.querySelector("#currentWeatherIcon");
     cityWeatherIconImg.setAttribute("src", `https://openweathermap.org/img/wn/${icon}@2x.png`);
