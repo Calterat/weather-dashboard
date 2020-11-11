@@ -100,10 +100,9 @@ git clone git@github.com:Calterat/weather-dashboard.git
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-[My Portfolio](https://calterat.github.io/weather-dashboard/)
+[My Weather-Dashboard](https://calterat.github.io/weather-dashboard/)
 
-Please press the 'Generate Button' and use it to produce a random password using the character types you selected.
-
+Type in the city or zip code you want to see the weather in. For a more precise search result use "city name (or Zip code), country". Ex. - London, GB or 37211, US.
 
 
 <!-- ROADMAP -->
